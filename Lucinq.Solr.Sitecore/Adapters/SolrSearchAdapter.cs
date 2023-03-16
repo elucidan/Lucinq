@@ -1,14 +1,13 @@
-﻿namespace Lucinq.Solr.Adapters
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using Core.Adapters;
-    using Core.Enums;
-    using Core.Querying;
-    using SolrNet;
+﻿using System;
+using System.Linq;
+using System.Text;
+using Lucinq.Core.Adapters;
+using Lucinq.Core.Enums;
+using Lucinq.Core.Querying;
+using SolrNet;
 
+namespace Lucinq.Solr.Sitecore.Adapters
+{
     public class SolrSearchAdapter : IProviderAdapter<SolrSearchModel>
     {
         protected SolrSearchModel NativeModel { get; set; }
@@ -80,7 +79,7 @@
 
             if (NativeModel.FilterBuilder.Length > 0)
             {
-                NativeModel.FilterBuilder.Append(" , ");
+                NativeModel.FilterBuilder.Append(" AND ");
             }
             NativeModel.FilterBuilder.Append(filterString);
         }
